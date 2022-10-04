@@ -6,7 +6,7 @@
 //сортуванням Шелла, Гоара (швидкого сортування). Виконати порівняння
 //ефективності вказаних методів сортування
 
-//Matrix M*N is given. Sort it with bubble, insertion, sgit election, Shell`s
+//Matrix M*N is given. Sort it with bubble, insertion, selection, Shell`s
 // and Hoare (quick sort) sorting algorithms
 
 import java.util.Scanner;
@@ -23,38 +23,27 @@ class Lab_1 {
         int n = s.nextInt();
         int[][] matrix = new int[m][n];
 
-        generateMatrix(matrix);
-        printMatrix(matrix, "blue");
-        System.out.println();
-        bubbleSort(matrix);
-        printMatrix(matrix, "yellow");
-        System.out.println("\n");
+        callSort(matrix, "bubble", 1);
+        callSort(matrix, "insertion", 2);
+        callSort(matrix, "selection", 3);
+        callSort(matrix, "Shell`s", 4);
+        callSort(matrix, "Hoare`s", 5);
+    }
 
+    public static void callSort(int[][] matrix, String algoName, int algorithm){
+        //this method created to make code in main method shorter
         generateMatrix(matrix);
+        System.out.println("Matrix before " + algoName + " sort:");
         printMatrix(matrix, "blue");
         System.out.println();
-        insertionSort(matrix);
-        printMatrix(matrix, "yellow");
-        System.out.println("\n");
-
-        generateMatrix(matrix);
-        printMatrix(matrix, "blue");
-        System.out.println();
-        selectionSort(matrix);
-        printMatrix(matrix, "yellow");
-        System.out.println("\n");
-
-        generateMatrix(matrix);
-        printMatrix(matrix, "blue");
-        System.out.println();
-        shellSort(matrix);
-        printMatrix(matrix, "yellow");
-        System.out.println("\n");
-
-        generateMatrix(matrix);
-        printMatrix(matrix, "blue");
-        System.out.println();
-        hoareForAll(matrix);
+        switch(algorithm){
+            case 1: bubbleSort(matrix);
+            case 2: insertionSort(matrix);
+            case 3: selectionSort(matrix);
+            case 4: shellSort(matrix);
+            case 5: hoareForAll(matrix);
+        }
+        System.out.println("Matrix after " + algoName + " sort: ");
         printMatrix(matrix, "yellow");
         System.out.println("\n");
     }
