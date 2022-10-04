@@ -6,6 +6,9 @@
 //сортуванням Шелла, Гоара (швидкого сортування). Виконати порівняння
 //ефективності вказаних методів сортування
 
+//Matrix M*N is given. Sort it with bubble, insertion, sgit election, Shell`s
+// and Hoare (quick sort) sorting algorithms
+
 import java.util.Scanner;
 
 class Lab_1 {
