@@ -70,7 +70,7 @@ class Lab_1 {
         int m = mat.length;
         int n = mat[0].length;
         for(int i=0; i<m; i++){
-            if(i%2 == 1){
+            if(i%2 == 0){
                 System.out.print(paint);
             }
             System.out.print("|");
