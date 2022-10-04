@@ -16,6 +16,9 @@ class Lab_1 {
     public static final String setBlue = "\u001B[34m";
     public static final String setDefault = "\u001B[0m";
 
+    public static long start, end;
+    public static int iterations;
+
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter M and N: ");
@@ -36,6 +39,8 @@ class Lab_1 {
         System.out.println("Matrix before " + algoName + " sort:");
         printMatrix(matrix, "blue");
         System.out.println();
+        iterations = 0;
+        start = System.nanoTime();
         switch(algorithm){
             case 1: bubbleSort(matrix);
             case 2: insertionSort(matrix);
@@ -43,8 +48,11 @@ class Lab_1 {
             case 4: shellSort(matrix);
             case 5: hoareForAll(matrix);
         }
+        end = System.nanoTime();
         System.out.println("Matrix after " + algoName + " sort: ");
         printMatrix(matrix, "yellow");
+        System.out.println("The time of executing: " + (end-start) + " ns");
+        System.out.println("Number of iterations: " + iterations);
         System.out.println("\n");
     }
 
@@ -92,6 +100,7 @@ class Lab_1 {
                         int buf = mat[i][k];
                         mat[i][k] = mat[i][k+1];
                         mat[i][k+1] = buf;
+                        iterations++;
                     }
                 }
             }
@@ -108,6 +117,7 @@ class Lab_1 {
                         int buf = mat[i][k];
                         mat[i][k] = mat[i][k-1];
                         mat[i][k-1] = buf;
+                        iterations++;
                     }
                     else{
                         break;
@@ -133,6 +143,7 @@ class Lab_1 {
                 int buf = mat[i][j];
                 mat[i][j] = min;
                 mat[i][indexMin] = buf;
+                iterations++;
                 min = Integer.MAX_VALUE;
             }
         }
@@ -148,6 +159,7 @@ class Lab_1 {
                         int buf = mat[i][j];
                         mat[i][j] = mat[i][j+g];
                         mat[i][j+g] = buf;
+                        iterations++;
                     }
                 }
             }
@@ -166,6 +178,7 @@ class Lab_1 {
                 int buf = arr[i];
                 arr[i] = arr[j];
                 arr[j] = buf;
+                iterations++;
                 i++;
                 j--;
             }
