@@ -37,7 +37,7 @@ class Lab_1 {
         //this method created to make code in main method shorter
         generateMatrix(matrix);
         System.out.println("Matrix before " + algoName + " sort:");
-        //printMatrix(matrix, "blue");
+        printMatrix(matrix, "blue");
         System.out.println();
         iterations = 0;
         start = System.nanoTime();
@@ -50,7 +50,7 @@ class Lab_1 {
         }
         end = System.nanoTime();
         System.out.println("Matrix after " + algoName + " sort: ");
-        //printMatrix(matrix, "yellow");
+        printMatrix(matrix, "yellow");
         System.out.println("The time of executing: " + (end-start) + " ns");
         System.out.println("Number of iterations: " + iterations);
         System.out.println("\n");
@@ -153,7 +153,7 @@ class Lab_1 {
         int n = mat.length;
         int m = mat[0].length;
         for (int i = 0; i < n; i+=2){
-            for(int g=m/2 + 1; g>=1; g/=2){
+            for(int g=m/2 + 1; g>=1; g/=1.5){
                 for(int j=0; j<m-g; j++){
                     if(mat[i][j] > mat[i][j+g]){
                         int buf = mat[i][j];
