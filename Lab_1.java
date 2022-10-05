@@ -17,7 +17,7 @@ class Lab_1 {
     public static final String setDefault = "\u001B[0m";
 
     public static long start, end;
-    public static int iterations;
+    public static int iterations = 0;
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -37,20 +37,20 @@ class Lab_1 {
         //this method created to make code in main method shorter
         generateMatrix(matrix);
         System.out.println("Matrix before " + algoName + " sort:");
-        printMatrix(matrix, "blue");
+        //printMatrix(matrix, "blue");
         System.out.println();
         iterations = 0;
         start = System.nanoTime();
-        switch(algorithm){
-            case 1: bubbleSort(matrix);
-            case 2: insertionSort(matrix);
-            case 3: selectionSort(matrix);
-            case 4: shellSort(matrix);
-            case 5: hoareForAll(matrix);
+        switch (algorithm) {
+            case 1 -> bubbleSort(matrix);
+            case 2 -> insertionSort(matrix);
+            case 3 -> selectionSort(matrix);
+            case 4 -> shellSort(matrix);
+            case 5 -> hoareForAll(matrix);
         }
         end = System.nanoTime();
         System.out.println("Matrix after " + algoName + " sort: ");
-        printMatrix(matrix, "yellow");
+        //printMatrix(matrix, "yellow");
         System.out.println("The time of executing: " + (end-start) + " ns");
         System.out.println("Number of iterations: " + iterations);
         System.out.println("\n");
