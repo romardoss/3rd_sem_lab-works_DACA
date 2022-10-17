@@ -34,26 +34,33 @@ class Lab_2 {
     public static double sin(double x, int n){
         //function for sin(x) or sin(fi)
         x %= 2*PI;
+        if(x >= PI){
+            return -sin(x - PI, n);
+        }
+        else if(x >= PI/2){
+            return cos(x - PI/2, n);
+        }
+
         double answer = 0;
         for (int k = 0; k < n; k++) {
             answer += pow(-1, k) * pow(x, 2*k+1) / factorial(2*k + 1);
         }
-//        answer *= pow(10, accuracy);
-//        answer = round(answer);
-//        answer /= pow(10, accuracy);
         return answer;
     }
 
     public static double cos(double x, int n){
         //function for cos(x) or cos(fi)
         x %= 2*PI;
+        if(x >= PI){
+            return -cos(x - PI, n);
+        }
+        if (x >= PI/2){
+            return -sin(x - PI/2, n);
+        }
         double answer = 0;
         for (int k = 0; k < n; k++) {
             answer += pow(-1, k) * pow(x, 2*k) / factorial(2*k);
         }
-//        answer *= pow(10, accuracy);
-//        answer = round(answer);
-//        answer /= pow(10, accuracy);
         return answer;
     }
 
@@ -68,11 +75,11 @@ class Lab_2 {
     public static void limacon(int a, int b, double start, double end){
         //limaçon using our own sin() and cos() functions
         System.out.println("|Кут\t|x\t\t\t|y\t\t\t|ρ\t\t\t|");
-        for (double i = start; i < end; i += 0.1) {
+        for (double i = start; i < end; i += 0.5) {
             double c = cos(i, n);
             double s = sin(i, n);
-            double x = a*c*c + b*c;
-            double y = a*s*c + b*c;
+            double x = c * (a*c + b);
+            double y = c * (a*s + b);
             double p = 2*a*c + b;
             System.out.printf("|%.2f\t|%f\t|%f\t|%f\t|\n", i, x, y, p);
         }
@@ -81,11 +88,11 @@ class Lab_2 {
     public static void limacon_standard(int a, int b, double start, double end){
         //limaçon using our standard sin() and cos() functions
         System.out.println("|Кут\t|x\t\t\t|y\t\t\t|ρ\t\t\t|");
-        for (double i = start; i < end; i += 0.1) {
+        for (double i = start; i < end; i += 0.5) {
             double c = Math.cos(i);
             double s = Math.sin(i);
-            double x = a*c*c + b*c;
-            double y = a*s*c + b*c;
+            double x = c * (a*c + b);
+            double y = c * (a*s + b);
             double p = 2*a*c + b;
             System.out.printf("|%.2f\t|%f\t|%f\t|%f\t|\n", i, x, y, p);
         }
