@@ -26,10 +26,10 @@ class Lab_1 {
         int n = s.nextInt();
         int[][] matrix = new int[m][n];
 
-        callSort(matrix, "bubble", 1);
-        callSort(matrix, "insertion", 2);
-        callSort(matrix, "selection", 3);
-        callSort(matrix, "Shell`s", 4);
+        //callSort(matrix, "bubble", 1);
+        //callSort(matrix, "insertion", 2);
+        //callSort(matrix, "selection", 3);
+        //callSort(matrix, "Shell`s", 4);
         callSort(matrix, "Hoare`s", 5);
     }
 
@@ -37,7 +37,7 @@ class Lab_1 {
         //this method created to make code in main method shorter
         generateMatrix(matrix);
         System.out.println("Matrix before " + algoName + " sort:");
-        printMatrix(matrix, "blue");
+        //printMatrix(matrix, "blue");
         System.out.println();
         iterations = 0;
         start = System.nanoTime();
@@ -50,7 +50,7 @@ class Lab_1 {
         }
         end = System.nanoTime();
         System.out.println("Matrix after " + algoName + " sort: ");
-        printMatrix(matrix, "yellow");
+        //printMatrix(matrix, "yellow");
         System.out.println("The time of executing: " + (end-start) + " ns");
         System.out.println("Number of iterations: " + iterations);
         System.out.println("\n");
