@@ -1,3 +1,14 @@
+//Берегун Роман, група ТР-11
+//Berehun Roman, TR-11 group
+
+//Створити методи, що обчислюють функції синуса та косинуса, обраховуючи ряд.
+//Функцію факторіалу зробити рекурсивною
+//Вивести на екран таблицю значень даної функції (Равлик Паскаля) за конкретних кутів
+
+//Create methods to calculate sin and cos functions using series
+//Factorial function make using recursion
+//Print table of results of Limaçon function with different angles
+
 import java.util.Scanner;
 
 import static java.lang.Math.*;
@@ -10,17 +21,6 @@ class Lab_2 {
         Scanner s = new Scanner(System.in);
         System.out.print("Введіть точність (кількість знаків після коми): ");
         accuracy = s.nextInt();
-//        System.out.println(sin(PI/2, n));
-//        System.out.println(sin(0, n));
-//        System.out.println(cos(PI/2, n));
-//        System.out.println(cos(0, n));
-//        System.out.println(sin(PI/6, n));
-//        System.out.println(cos(PI/6, n));
-//        System.out.println(Math.cos(PI/6));
-
-        System.out.println(sin(PI/2 + PI, n));
-        System.out.println(sin(2*PI, n));
-        System.out.println(sin(3*PI + PI/2, n));
     }
 
     public static double sin(double x, int n){
@@ -56,4 +56,6 @@ class Lab_2 {
         }
         return k * factorial(k-1);
     }
+
+
 }
