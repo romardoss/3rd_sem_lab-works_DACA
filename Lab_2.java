@@ -16,6 +16,7 @@ import static java.lang.Math.*;
 class Lab_2 {
     static int accuracy = 5;
     static int n;
+    static double step = 0.1;
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -29,6 +30,7 @@ class Lab_2 {
         System.out.println();
         System.out.println("Результат, використовуючи стандартні значення синуса та косинуса");
         limacon_standard(a, b, 0, 2*PI);
+        printAccuracy();
     }
 
     public static double sin(double x, int n){
@@ -75,7 +77,7 @@ class Lab_2 {
     public static void limacon(int a, int b, double start, double end){
         //limaçon using our own sin() and cos() functions
         System.out.println("|Кут\t|x\t\t\t|y\t\t\t|ρ\t\t\t|");
-        for (double i = start; i < end; i += 0.5) {
+        for (double i = start; i < end; i += step) {
             double c = cos(i, n);
             double s = sin(i, n);
             double x = c * (a*c + b);
@@ -88,7 +90,7 @@ class Lab_2 {
     public static void limacon_standard(int a, int b, double start, double end){
         //limaçon using our standard sin() and cos() functions
         System.out.println("|Кут\t|x\t\t\t|y\t\t\t|ρ\t\t\t|");
-        for (double i = start; i < end; i += 0.5) {
+        for (double i = start; i < end; i += step) {
             double c = Math.cos(i);
             double s = Math.sin(i);
             double x = c * (a*c + b);
@@ -96,5 +98,14 @@ class Lab_2 {
             double p = 2*a*c + b;
             System.out.printf("|%.2f\t|%f\t|%f\t|%f\t|\n", i, x, y, p);
         }
+    }
+
+    public static void printAccuracy(){
+        double angle = 6.2;
+        double diff1 = sin(angle, n) - Math.sin(angle);
+        double diff2 = cos(angle, n) - Math.cos(angle);
+        double diff = (diff1 + diff2) / 2;
+        diff *= 100;
+        System.out.printf("Похибка становить %.10f%%", diff);
     }
 }
